@@ -2,6 +2,7 @@ import DrAppointment from "./container/DrAppointment/DrAppointment";
 import Header from "./container/Header/Header";
 import Info from "./container/Info/Info";
 import Services from "./container/Services/Services";
+import Testimonials from "./container/Testimonials/Testimonials";
 import Treatment from "./container/Treatment/Treatment";
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
       <Services />
       <Treatment />
       <DrAppointment />
+      <Testimonials />
     </main>
   );
 };
