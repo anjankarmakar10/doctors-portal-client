@@ -1,6 +1,7 @@
 import Header from "./container/Header/Header";
 import Info from "./container/Info/Info";
 import Services from "./container/Services/Services";
+import Treatment from "./container/Treatment/Treatment";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <Header />
       <Info />
       <Services />
+      <Treatment />
     </main>
   );
 };

@@ -31,7 +31,6 @@ const LeftCol = styled.div`
     margin-bottom: 1.875rem;
     @media ${QUERIES.tabletAndDown} {
       line-height: 1.1;
-      font-size: 2.5rem;
     }
   }
   p {
