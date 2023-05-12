@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1",
+    "title": "Teeth Cleaning 2",
+    "timeStart": "8:00 AM",
+    "timeEnd": "9:00 AM",
+    "space": "10"
+  },
+  {
+    "id": "2",
+    "title": "Teeth Cleaning 2",
+    "timeStart": "11:00 AM",
+    "timeEnd": "12:00 PM",
+    "space": "8"
+  },
+  {
+    "id": "3",
+    "title": "Teeth Cleaning 3",
+    "timeStart": "2:00 PM",
+    "timeEnd": "3:00 PM",
+    "space": "10"
+  },
+  {
+    "id": "4",
+    "title": "Teeth Cleaning 4",
+    "timeStart": "5:00 PM",
+    "timeEnd": "6:00 PM",
+    "space": "10"
+  },
+  {
+    "id": "5",
+    "title": "Teeth Cleaning 5",
+    "timeStart": "8:00 PM",
+    "timeEnd": "9:00 PM",
+    "space": "10"
+  },
+  {
+    "id": "6",
+    "title": "Teeth Cleaning 6",
+    "timeStart": "8:00 AM",
+    "timeEnd": "9:00 AM",
+    "space": "10"
+  },
+  {
+    "id": "7",
+    "title": "Teeth Cleaning 7",
+    "timeStart": "11:00 AM",
+    "timeEnd": "12:00 PM",
+    "space": "8"
+  },
+  {
+    "id": "8",
+    "title": "Teeth Cleaning 8",
+    "timeStart": "2:00 PM",
+    "timeEnd": "3:00 PM",
+    "space": "10"
+  },
+  {
+    "id": "9",
+    "title": "Teeth Cleaning 9",
+    "timeStart": "5:00 PM",
+    "timeEnd": "6:00 PM",
+    "space": "10"
+  }
+]

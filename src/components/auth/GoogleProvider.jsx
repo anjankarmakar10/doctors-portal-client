@@ -17,6 +17,10 @@ const Button = styled.button`
 
 const ButtonGoogle = styled(Button)`
   color: var(--clr-dark);
+  :hover {
+    color: #d4d9e3;
+    background-color: var(--clr-dark);
+  }
 `;
 
 export default GoogleProvider;
