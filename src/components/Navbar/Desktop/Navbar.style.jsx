@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import QUERIES from "../../../constants/Queries";
+import { NavLink } from "react-router-dom";
 
 const Wrapper = styled.div`
   max-width: 1375px;
@@ -29,7 +30,7 @@ const Navlinks = styled.ul`
   gap: 1.875rem;
   align-items: center;
 `;
-const Navitem = styled.a`
+const Navitem = styled(NavLink)`
   cursor: pointer;
   font-size: 1rem;
   color: var(--clr-dark);

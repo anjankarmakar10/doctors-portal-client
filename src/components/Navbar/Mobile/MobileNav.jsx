@@ -18,12 +18,7 @@ const MobileNav = ({ onExit }) => {
         <Navitem onClick={onExit} to={"/appointment"}>
           Appointment
         </Navitem>
-        <Navitem onClick={onExit} to={"/reviews"}>
-          Reviews
-        </Navitem>
-        <Navitem onClick={onExit} to={"/contact"}>
-          Contact Us
-        </Navitem>
+
         <Navitem onClick={onExit} to={"/login"}>
           Login
         </Navitem>

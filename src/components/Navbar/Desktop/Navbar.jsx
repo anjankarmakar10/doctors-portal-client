@@ -1,7 +1,6 @@
 import { Menu } from "react-feather";
 import { useState } from "react";
 import MobileNav from "../Mobile/MobileNav";
-
 import {
   Wrapper,
   MenuIcon,
@@ -27,9 +26,7 @@ const Navbar = () => {
           <Navitem to={"/"}>Home</Navitem>
           <Navitem to={"/about"}>About</Navitem>
           <Navitem to={"/appointment"}>Appointment</Navitem>
-          <Navitem to={"/reviews"}>Reviews</Navitem>
-          <Navitem to={"/contact"}>Contact Us</Navitem>
-          <Navitem to={"/login"}>Login</Navitem>
+          <Navitem to={"/signin"}>Login</Navitem>
           <MenuIcon onClick={() => setActive(true)}>
             <Menu />
           </MenuIcon>
