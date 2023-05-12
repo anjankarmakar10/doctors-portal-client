@@ -1,3 +1,4 @@
+import ContactUs from "./container/ContactUs/ContactUs";
 import DrAppointment from "./container/DrAppointment/DrAppointment";
 import Header from "./container/Header/Header";
 import Info from "./container/Info/Info";
@@ -14,6 +15,7 @@ const Home = () => {
       <Treatment />
       <DrAppointment />
       <Testimonials />
+      <ContactUs />
     </main>
   );
 };
