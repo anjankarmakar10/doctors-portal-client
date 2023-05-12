@@ -22,8 +22,8 @@ const SignInFrom = () => {
           <NavLink to="/signup">Create new account</NavLink>
         </p>
         <p className="or">OR</p>
-        <GoogleProvider />
       </form>
+      <GoogleProvider />
     </Wrapper>
   );
 };
@@ -86,7 +86,7 @@ const Wrapper = styled.div`
   }
 
   .or {
-    margin-block: 1rem 1.5rem;
+    margin-block: 1rem 0;
     text-align: center;
     font-weight: 500;
   }

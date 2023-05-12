@@ -1,7 +1,20 @@
 import { styled } from "styled-components";
+import { useAuth } from "../../context/AuthProvider";
 
 const GoogleProvider = () => {
-  return <ButtonGoogle>CONTINUE WITH GOOGLE</ButtonGoogle>;
+  const { signInWithGoogle } = useAuth();
+
+  const handleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  return (
+    <ButtonGoogle onClick={handleSignIn}>CONTINUE WITH GOOGLE</ButtonGoogle>
+  );
 };
 
 const Button = styled.button`
@@ -17,7 +30,8 @@ const Button = styled.button`
 
 const ButtonGoogle = styled(Button)`
   color: var(--clr-dark);
-  :hover {
+  transition: all 200ms linear;
+  &:hover {
     color: #d4d9e3;
     background-color: var(--clr-dark);
   }
