@@ -2,11 +2,15 @@ import styled from "styled-components";
 import GoogleProvider from "../../../components/auth/GoogleProvider";
 import { Link } from "react-router-dom";
 
-const SignInFrom = () => {
+const SignUpFrom = () => {
   return (
     <Wrapper>
-      <h3>Login</h3>
+      <h3>Sign Up</h3>
       <form>
+        <label htmlFor="Email">
+          <span>Name</span>
+          <input type="text" />
+        </label>
         <label htmlFor="Email">
           <span>Email</span>
           <input type="email" />
@@ -14,12 +18,10 @@ const SignInFrom = () => {
         <label htmlFor="password">
           <span>Pasword</span>
           <input type="password" />
-          <span className="forgot">Forgot Password?</span>
         </label>
-        <ButtonLogin>Login</ButtonLogin>
+        <ButtonLogin>Sign Up</ButtonLogin>
         <p className="create">
-          New to Doctors Portal?{" "}
-          <NavLink to="/signup">Create new account</NavLink>
+          Already have an account? <NavLink to="/signin">Login</NavLink>
         </p>
         <p className="or">OR</p>
         <GoogleProvider />
@@ -113,4 +115,4 @@ const NavLink = styled(Link)`
   margin-left: 6px;
 `;
 
-export default SignInFrom;
+export default SignUpFrom;

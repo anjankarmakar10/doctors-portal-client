@@ -3,7 +3,8 @@ import App from "../App";
 import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import Appoinment from "../pages/Appointment/Appoinment";
-import SignIn from "../pages/SignIn/container/SignInFrom";
+import SignIn from "../pages/SignIn/SignIn";
+import SignUp from "../pages/SignUp/SignUp";
 
 const routes = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const routes = createBrowserRouter([
       {
         path: "signin",
         element: <SignIn />,
+      },
+      {
+        path: "signup",
+        element: <SignUp />,
       },
     ],
   },
