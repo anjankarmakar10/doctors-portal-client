@@ -15,9 +15,9 @@ function App() {
 }
 
 const Wrapper = styled(Outlet)`
-  /* margin-top: 64px; */
   max-width: 1375px;
   margin-inline: auto;
+  padding-top: 64px;
 `;
 
 export default App;

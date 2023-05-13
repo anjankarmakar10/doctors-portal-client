@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 const Wrapper = styled.div`
@@ -37,7 +38,7 @@ const ExitMenu = styled.div`
   }
 `;
 
-const Navitem = styled.a`
+const Navitem = styled(Link)`
   font-weight: 600;
   color: var(--clr-dark);
   width: fit-content;

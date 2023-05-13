@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { images } from "../../../constants";
 import done from "../../../assets/icons/done.png";
 import { useData } from "../../../context/DataProvider";
+import addAppointment from "../../../utils/addAppointment";
 export const AppointmentFrom = ({ isOpen }) => {
   const [isSumbit, setIsSubmit] = useState(false);
   const [fromData, setFormData] = useState({
@@ -17,22 +18,30 @@ export const AppointmentFrom = ({ isOpen }) => {
 
   const { cardTitle, timeStart, timeEnd } = selectedCard;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     const date = dateRef.current.value;
     e.preventDefault();
-    if (fromData.name && fromData.email && fromData.phone) {
-      setIsSubmit(true);
-    } else {
-      alert("Please fill the form properly");
-    }
 
     const appointment = {
       patient: fromData,
       date,
       data: selectedCard,
+      status: false,
     };
 
-    console.log(appointment);
+    if (fromData.name && fromData.email && fromData.phone) {
+      try {
+        const response = await addAppointment(appointment);
+        const result = await response.json();
+        if (result.acknowledged) {
+          setIsSubmit(true);
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    } else {
+      alert("Please fill the form properly");
+    }
   };
 
   const handleChange = (e) => {

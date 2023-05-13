@@ -12,7 +12,7 @@ const Info = () => {
         img={images.clock}
       />
       <InfoCard
-        isDark={true}
+        isDark={"true"}
         title={"Visit our location"}
         info={"Lorem Ipsum is simply dummy text of the pri"}
         img={images.marker}

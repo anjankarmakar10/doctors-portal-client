@@ -16,7 +16,8 @@ const InfoCard = ({ img, title, info, isDark }) => {
 };
 
 const Wrapper = styled.article`
-  background: ${(p) => (p.dark ? "var(--clr-dark)" : "var(--clr-lin-green)")};
+  background: ${(p) =>
+    p.dark === "true" ? "var(--clr-dark)" : "var(--clr-lin-green)"};
   padding: 42px 32px 40px 24px;
   border-radius: 14px;
   display: flex;

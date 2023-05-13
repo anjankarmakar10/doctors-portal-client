@@ -9,22 +9,23 @@ import {
   Navlinks,
   Logo,
 } from "./Navbar.style";
+
 import { useAuth } from "../../../context/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
 
   const { user } = useAuth();
-  console.log(user);
 
   const handleExit = () => {
     setActive(false);
   };
   return (
-    <Wrapper className="DDD">
+    <Wrapper>
       <Nav>
         <Logo>
-          <a href="/">Doctors Portal</a>
+          <Link to="/">Doctors Portal</Link>
         </Logo>
         <Navlinks>
           <Navitem to={"/"}>Home</Navitem>
