@@ -9,9 +9,13 @@ import {
   Navlinks,
   Logo,
 } from "./Navbar.style";
+import { useAuth } from "../../../context/AuthProvider";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
+
+  const { user } = useAuth();
+  console.log(user);
 
   const handleExit = () => {
     setActive(false);
@@ -26,7 +30,14 @@ const Navbar = () => {
           <Navitem to={"/"}>Home</Navitem>
           <Navitem to={"/about"}>About</Navitem>
           <Navitem to={"/appointment"}>Appointment</Navitem>
-          <Navitem to={"/signin"}>Login</Navitem>
+          <>
+            {user ? (
+              <Navitem to={"/profile"}>{user?.displayName}</Navitem>
+            ) : (
+              <Navitem to={"/signin"}>Login</Navitem>
+            )}
+          </>
+
           <MenuIcon onClick={() => setActive(true)}>
             <Menu />
           </MenuIcon>

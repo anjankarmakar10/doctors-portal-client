@@ -12,6 +12,7 @@ export default function SubComponentsPickers() {
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <CalendarPicker
+            view="day"
             date={date}
             onChange={(newDate) => setDate(newDate)}
           />

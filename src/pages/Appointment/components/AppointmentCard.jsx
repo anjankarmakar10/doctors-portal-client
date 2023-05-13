@@ -73,8 +73,8 @@ const Wrapper = styled.article`
   &::before {
     z-index: 2;
     content: " ";
-    bottom: 0;
-    left: 0;
+    top: 0;
+    right: 0;
     height: 100%;
     width: 100%;
     position: absolute;

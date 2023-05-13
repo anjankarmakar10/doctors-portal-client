@@ -1,33 +1,44 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import appointmentData from "../../data/appointmentData.json";
 import AppointmentCard from "./components/AppointmentCard";
 import { AppointmentFrom } from "./container/AppointmentFrom";
 import AppointmentHeader from "./container/AppointmentHeader";
+import { useData } from "../../context/DataProvider";
+import useTreatments from "../../hooks/useTreatments";
 
 const Appointment = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { date } = useData();
+
+  const data = useTreatments();
 
   return (
     <Wrapper>
       <AppointmentHeader />
       <AppointmentTitle>
-        Available Appointments on April 30, 2022
+        Available Appointments on {date.format("MMMM D, YYYY")}
       </AppointmentTitle>
-      <CardContainer>
-        {appointmentData.map((appointment) => (
-          <AppointmentCard
-            key={appointment.id}
-            id={appointment.id}
-            cardTitle={appointment.title}
-            timeStart={appointment.timeStart}
-            timeEnd={appointment.timeEnd}
-            space={appointment.space}
-            setIsOpen={setIsOpen}
-          />
-        ))}
-      </CardContainer>
+
+      {date.$W == 5 ? (
+        <Weekend>No Appointment on Friday </Weekend>
+      ) : (
+        <CardContainer>
+          {data
+            ?.filter((item) => item.week !== +date.$W)
+            ?.map((appointment) => (
+              <AppointmentCard
+                key={appointment.id}
+                id={appointment.id}
+                cardTitle={appointment.title}
+                timeStart={appointment.timeStart}
+                timeEnd={appointment.timeEnd}
+                space={appointment.space}
+                setIsOpen={setIsOpen}
+              />
+            ))}
+        </CardContainer>
+      )}
 
       {isOpen && (
         <FromWrapper>
@@ -56,6 +67,16 @@ const CardContainer = styled.section`
   gap: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
   margin-bottom: 8.5rem;
+`;
+
+const Weekend = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: -2rem;
+  padding-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #317ae7;
 `;
 
 const FromWrapper = styled.div`

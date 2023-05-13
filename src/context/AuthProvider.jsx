@@ -11,6 +11,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
 
   const signInWithGoogle = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleAuthProvider);
   };
 

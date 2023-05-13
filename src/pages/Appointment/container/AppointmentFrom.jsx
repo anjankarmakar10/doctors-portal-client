@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
 import { images } from "../../../constants";
 import done from "../../../assets/icons/done.png";
@@ -11,17 +11,28 @@ export const AppointmentFrom = ({ isOpen }) => {
     phone: "",
   });
 
+  const dateRef = useRef();
+
   const { selectedCard, date } = useData();
 
   const { cardTitle, timeStart, timeEnd } = selectedCard;
 
   const handleSubmit = (e) => {
+    const date = dateRef.current.value;
     e.preventDefault();
     if (fromData.name && fromData.email && fromData.phone) {
       setIsSubmit(true);
     } else {
       alert("Please fill the form properly");
     }
+
+    const appointment = {
+      patient: fromData,
+      date,
+      data: selectedCard,
+    };
+
+    console.log(appointment);
   };
 
   const handleChange = (e) => {
@@ -46,6 +57,7 @@ export const AppointmentFrom = ({ isOpen }) => {
             <input
               disabled
               type="text"
+              ref={dateRef}
               value={`${date.format("MMMM D, YYYY")}`}
             />
             <input disabled type="text" value={`${timeStart} - ${timeEnd}`} />
