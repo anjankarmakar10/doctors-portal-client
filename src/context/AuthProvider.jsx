@@ -20,9 +20,20 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unscribe = onAuthStateChanged(auth, (user) => {
+    const unscribe = onAuthStateChanged(auth, async (user) => {
       setUser(user);
       setLoading(false);
+      const loggedUser = { email: user?.email };
+      const response = await fetch("http://localhost:4000/jwt", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(loggedUser),
+      });
+
+      const result = await response.json();
+      localStorage.setItem("access_token", result.token);
     });
 
     return () => unscribe();

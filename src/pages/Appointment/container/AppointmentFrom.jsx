@@ -4,6 +4,7 @@ import { images } from "../../../constants";
 import done from "../../../assets/icons/done.png";
 import { useData } from "../../../context/DataProvider";
 import addAppointment from "../../../utils/addAppointment";
+import { useAuth } from "../../../context/AuthProvider";
 export const AppointmentFrom = ({ isOpen }) => {
   const [isSumbit, setIsSubmit] = useState(false);
   const [fromData, setFormData] = useState({
@@ -11,6 +12,8 @@ export const AppointmentFrom = ({ isOpen }) => {
     name: "",
     phone: "",
   });
+
+  const { user } = useAuth();
 
   const dateRef = useRef();
 
@@ -27,6 +30,7 @@ export const AppointmentFrom = ({ isOpen }) => {
       date,
       data: selectedCard,
       status: false,
+      email: user.email,
     };
 
     if (fromData.name && fromData.email && fromData.phone) {
