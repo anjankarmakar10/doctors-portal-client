@@ -1,12 +1,20 @@
 import { styled } from "styled-components";
 import { useAuth } from "../../context/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const GoogleProvider = () => {
+  const { state } = useLocation();
+  console.log(state);
+
+  const navigate = useNavigate();
+  const from = state?.path || "/";
+
   const { signInWithGoogle } = useAuth();
 
   const handleSignIn = async () => {
     try {
       await signInWithGoogle();
+      navigate(from, { replace: true });
     } catch (error) {
       console.log(error.message);
     }

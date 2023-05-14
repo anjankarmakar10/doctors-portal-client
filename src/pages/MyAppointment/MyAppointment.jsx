@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import useAppointments from "../../hooks/useAppointments";
 import QUERIES from "../../constants/Queries";
 import removeAppointment from "../../utils/removeAppointment";
+import updateAppointment from "../../utils/updateAppointment";
 const MyAppointment = () => {
   const [treatments, setTreatments] = useAppointments();
 
@@ -12,6 +13,22 @@ const MyAppointment = () => {
 
       if (result.deletedCount > 0) {
         setTreatments((prev) => prev.filter((item) => item._id !== id));
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const handleUpdate = async (item) => {
+    const index = treatments.indexOf(item);
+    const arr = [...treatments];
+    arr[index].status = true;
+
+    try {
+      const response = await updateAppointment(item._id, { status: true });
+      const result = await response.json();
+      if (result.modifiedCount) {
+        setTreatments(arr);
       }
     } catch (error) {
       console.log(error.message);
@@ -41,7 +58,9 @@ const MyAppointment = () => {
                   {item?.status ? (
                     <Approved>Approved</Approved>
                   ) : (
-                    <Pending>Pending</Pending>
+                    <Pending onClick={() => handleUpdate(item)}>
+                      Pending
+                    </Pending>
                   )}
                 </>
                 {!item?.status && (
