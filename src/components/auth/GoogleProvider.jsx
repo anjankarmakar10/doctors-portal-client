@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const GoogleProvider = () => {
   const { state } = useLocation();
-  console.log(state);
 
   const navigate = useNavigate();
   const from = state?.path || "/";
