@@ -7,6 +7,7 @@ const Profile = () => {
   const handleLogOut = async () => {
     try {
       await logOut();
+      localStorage.removeItem("access_token");
     } catch (error) {
       console.log(error.message);
     }

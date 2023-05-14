@@ -3,8 +3,10 @@ import useAppointments from "../../hooks/useAppointments";
 import QUERIES from "../../constants/Queries";
 import removeAppointment from "../../utils/removeAppointment";
 import updateAppointment from "../../utils/updateAppointment";
+import { useAuth } from "../../context/AuthProvider";
 const MyAppointment = () => {
-  const [treatments, setTreatments] = useAppointments();
+  const { user } = useAuth();
+  const [treatments, setTreatments] = useAppointments(user?.email);
 
   const handleDelete = async (id) => {
     try {

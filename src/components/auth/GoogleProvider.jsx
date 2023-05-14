@@ -12,7 +12,19 @@ const GoogleProvider = () => {
 
   const handleSignIn = async () => {
     try {
-      await signInWithGoogle();
+      const { user } = await signInWithGoogle();
+      const loggedUser = { email: user?.email };
+      const response = await fetch("http://localhost:4000/jwt", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(loggedUser),
+      });
+
+      const result = await response.json();
+      localStorage.setItem("access_token", result.token);
+
       navigate(from, { replace: true });
     } catch (error) {
       console.log(error.message);
